@@ -1,0 +1,31 @@
+server {
+    root    /var/static/gallery;
+    index   index.html;
+    listen  80;
+    server_name gallery.beta.yitao.io;
+
+    location / {
+        default_type "text/html";
+        try_files $uri.html $uri $uri/ /index.html;
+    }
+}
+root@ydm:~/sites-enabled# cat yitaoio
+server {
+    listen  80;
+    server_name beta.yitao.io;
+
+    client_max_body_size 4G;
+
+    location /favicon.ico {
+        alias /var/static/favicon.ico;
+    }
+
+    location /static {
+        alias /var/static/yitaoio;
+    }
+
+    location / {
+        proxy_pass       http://yitaoio:8000;
+        proxy_set_header Host $host;
+    }
+}

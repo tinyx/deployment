@@ -1,0 +1,5 @@
+server {
+    server_name aprilwithyou.com www.aprilwithyou;
+    rewrite ^/$ https://space.bilibili.com/779136/ redirect;
+}
+
