@@ -1,6 +1,6 @@
 server {
     listen  80;
-    server_name beta.yitao.io yitao.io;
+    server_name beta.yitao.io yitao.io todo.yitao.io;
 
     client_max_body_size 4G;
 
