@@ -1,16 +1,4 @@
 server {
-    root    /var/static/gallery;
-    index   index.html;
-    listen  80;
-    server_name gallery.beta.yitao.io;
-
-    location / {
-        default_type "text/html";
-        try_files $uri.html $uri $uri/ /index.html;
-    }
-}
-root@ydm:~/sites-enabled# cat yitaoio
-server {
     listen  80;
     server_name beta.yitao.io;
 
