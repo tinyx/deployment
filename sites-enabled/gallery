@@ -2,7 +2,7 @@ server {
     root    /var/static/gallery;
     index   index.html;
     listen  80;
-    server_name gallery.beta.yitao.io;
+    server_name gallery.beta.yitao.io gallery.yitao.io;
 
     location / {
         default_type "text/html";
