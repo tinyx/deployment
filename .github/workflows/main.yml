@@ -1,6 +1,6 @@
 name: CI
 
-on: 
+on:
   push:
     branches:
       - master
@@ -9,7 +9,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Save DigitalOcean kubeconfig
       uses: digitalocean/action-doctl@master
@@ -17,3 +17,4 @@ jobs:
         DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       with:
         args: compute ssh; cd deployment; ./deploy.sh
+
