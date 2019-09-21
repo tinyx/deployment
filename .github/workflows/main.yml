@@ -16,4 +16,4 @@ jobs:
       env:
         DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       with:
-        args: doctl compute ssh; cd deployment; ./deploy.sh
+        args: compute ssh; cd deployment; ./deploy.sh
