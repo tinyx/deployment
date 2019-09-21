@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Save DigitalOcean kubeconfig
+    - name: SSH into DO droplet and deploy
       uses: digitalocean/action-doctl@master
       env:
         DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       with:
-        args: compute ssh; cd deployment; ./deploy.sh
+        args: compute ssh ydm; cd deployment; ./deploy.sh
 
