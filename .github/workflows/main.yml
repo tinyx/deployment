@@ -12,9 +12,11 @@ jobs:
 
     steps:
     - name: SSH into DO droplet and deploy
-      uses: digitalocean/action-doctl@master
+      uses: maddox/actions/ssh@master
       env:
-        DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        HOST: ${{ secrets.HOST }}
+        USER: ${{ secrets.USER }}
       with:
-        args: compute ssh ydm; cd deployment; ./deploy.sh
+        args: deployment/deploy.sh
 
