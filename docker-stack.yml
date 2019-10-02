@@ -3,6 +3,7 @@ version: "3.3"
 volumes:
   yitaoio-static:
   gallery-static:
+  gallery-media:
 
 services:
   nginx:
@@ -12,6 +13,7 @@ services:
       - ./sites-enabled:/etc/nginx/sites-enabled:ro
       - yitaoio-static:/var/static/yitaoio:ro
       - gallery-static:/var/static/gallery:ro
+      - gallery-media:/var/media:rw
     depends_on:
       - yitaoio
       - gallery
@@ -45,6 +47,7 @@ services:
     image: hb1412/gallery:latest
     volumes:
       - gallery-static:/code/static
+      - gallery-media:/code/media
     deploy:
       restart_policy:
         condition: any
