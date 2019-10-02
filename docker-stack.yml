@@ -2,8 +2,8 @@ version: "3.3"
 
 volumes:
   yitaoio-static:
+  yitaoio-media:
   gallery-static:
-  gallery-media:
 
 services:
   nginx:
@@ -12,8 +12,8 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - ./sites-enabled:/etc/nginx/sites-enabled:ro
       - yitaoio-static:/var/static/yitaoio:ro
+      - yitaoio-media:/var/media/yitaoio:rw
       - gallery-static:/var/static/gallery:ro
-      - gallery-media:/var/media:rw
     depends_on:
       - yitaoio
       - gallery
@@ -37,6 +37,7 @@ services:
     env_file: env
     volumes:
       - yitaoio-static:/code/static
+      - yitaoio-media:/code/media
       - ./settings.py:/code/config/settings/settings.py
     deploy:
       restart_policy:
@@ -47,7 +48,6 @@ services:
     image: hb1412/gallery:latest
     volumes:
       - gallery-static:/code/static
-      - gallery-media:/code/media
     deploy:
       restart_policy:
         condition: any
