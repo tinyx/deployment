@@ -12,6 +12,10 @@ server {
         alias /var/static/yitaoio;
     }
 
+    location /media {
+        alias /var/media/yitaoio;
+    }
+
     location / {
         proxy_set_header Host $host;
 
