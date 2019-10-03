@@ -5,7 +5,7 @@ server {
     client_max_body_size 4G;
 
     location /favicon.ico {
-        alias /var/static/favicon.ico;
+        alias /var/static/yitaoio/favicon.ico;
     }
 
     location /static {
