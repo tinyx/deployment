@@ -1,0 +1,11 @@
+server {
+    root    /var/static/ifthen;
+    index   index.html;
+    listen  80;
+    server_name ifthen.yitao.io;
+
+    location / {
+        default_type "text/html";
+        try_files $uri.html $uri $uri/ /index.html;
+    }
+}

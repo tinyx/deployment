@@ -4,6 +4,7 @@ volumes:
   yitaoio-static:
   yitaoio-media:
   gallery-static:
+  ifthen-static:
 
 services:
   nginx:
@@ -14,9 +15,11 @@ services:
       - yitaoio-static:/var/static/yitaoio:ro
       - yitaoio-media:/var/media/yitaoio:rw
       - gallery-static:/var/static/gallery:ro
+      - ifthen-static:/var/static/ifthen:ro
     depends_on:
       - yitaoio
       - gallery
+      - ifthen
     ports:
       - 80:80
       - 443:443
@@ -48,6 +51,15 @@ services:
     image: hb1412/gallery:latest
     volumes:
       - gallery-static:/code/static
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 10s
+
+  ifthen:
+    image: hb1412/ifthen-client:latest
+    volumes:
+      - ifthen-static:/code/static
     deploy:
       restart_policy:
         condition: any
