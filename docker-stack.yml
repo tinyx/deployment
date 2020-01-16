@@ -57,7 +57,7 @@ services:
         delay: 10s
 
   ifthen:
-    image: hb1412/ifthen-client:latest
+    image: hb1412/ifthen_client:latest
     volumes:
       - ifthen-static:/code/static
     deploy:
