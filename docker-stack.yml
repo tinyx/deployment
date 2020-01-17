@@ -40,6 +40,7 @@ services:
     image: hb1412/yitao.io:latest
     depends_on:
       - db
+      - redis
     env_file: env
     volumes:
       - yitaoio-static:/code/static
@@ -49,6 +50,12 @@ services:
       restart_policy:
         condition: any
         delay: 10s
+
+  redis:
+    image: redis:5-alpine
+    ports:
+      - "6379:6379"
+
 
   gallery:
     image: hb1412/gallery:latest
