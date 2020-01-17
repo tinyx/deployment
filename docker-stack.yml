@@ -5,6 +5,7 @@ volumes:
   yitaoio-media:
   gallery-static:
   ifthen-static:
+  auth-static:
 
 services:
   nginx:
@@ -16,10 +17,12 @@ services:
       - yitaoio-media:/var/media/yitaoio:rw
       - gallery-static:/var/static/gallery:ro
       - ifthen-static:/var/static/ifthen:ro
+      - auth-static:/var/static/auth:ro
     depends_on:
       - yitaoio
       - gallery
       - ifthen
+      - auth
     ports:
       - 80:80
       - 443:443
@@ -60,6 +63,15 @@ services:
     image: hb1412/ifthen_client:latest
     volumes:
       - ifthen-static:/code/static
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 10s
+
+  auth:
+    image: hb1412/auth:latest
+    volumes:
+      - auth-static:/code/static
     deploy:
       restart_policy:
         condition: any
