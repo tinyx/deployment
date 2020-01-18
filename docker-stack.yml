@@ -61,6 +61,8 @@ services:
     image: hb1412/gallery:latest
     volumes:
       - gallery-static:/code/static
+    # We have to do this to make sure changes in the image get picked up
+    command: sh -c "rm -rf /var/static/gallery/* && cp -r /code/static/* /var/static/gallery/"
     deploy:
       restart_policy:
         condition: any
@@ -70,6 +72,8 @@ services:
     image: hb1412/ifthen_client:latest
     volumes:
       - ifthen-static:/code/static
+    # We have to do this to make sure changes in the image get picked up
+    command: sh -c "rm -rf /var/static/ifthen/* && cp -r /code/static/* /var/static/ifthen/"
     deploy:
       restart_policy:
         condition: any
@@ -79,6 +83,8 @@ services:
     image: hb1412/auth:latest
     volumes:
       - auth-static:/code/static
+    # We have to do this to make sure changes in the image get picked up
+    command: sh -c "rm -rf /var/static/auth/* && cp -r /code/static/* /var/static/auth/"
     deploy:
       restart_policy:
         condition: any
