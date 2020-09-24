@@ -77,6 +77,7 @@ services:
     image: hb1412/auth:latest
     volumes:
       - auth-static:/code/static
+    command: sh -c "rm -rf /code/static/* && cp -r /app"
     deploy:
       restart_policy:
         condition: any
