@@ -80,4 +80,4 @@ services:
     deploy:
       restart_policy:
         condition: any
-        delay: 10s
+        delay: 5s
