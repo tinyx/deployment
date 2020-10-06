@@ -45,7 +45,7 @@ services:
     volumes:
       - yitaoio-static:/code/static
       - yitaoio-media:/code/media
-      - ./settings.py:/code/config/settings/settings.py
+      - ${PWD}/settings.py:/code/config/settings/settings.py
     deploy:
       restart_policy:
         condition: any
