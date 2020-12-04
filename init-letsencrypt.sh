@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(yitao.io beta.yitao.io todo.yitao.io)
+domains=(yitao.io)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="hb1412@gmail.com" # Adding a valid address is strongly recommended
