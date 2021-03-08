@@ -52,4 +52,6 @@ server {
             break;
         }
     }
+
+    return 444;
 }
